@@ -9,4 +9,5 @@ summary: "The Knight’s Tour is a fun\_puzzle\_where you move the knight so tha
 programming_language: Python
 content:
 - Topics
+- Knight's Tour Puzzle
 mode: Study

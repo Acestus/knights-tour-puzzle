@@ -1,22 +1,22 @@
-type: number
+type: string
 files:
 - name: answer.txt
   visible: true
   placeholders:
   - offset: 0
-    length: 1
+    length: 40
     placeholder_text: type your solution here
     initial_state:
-      length: 1
+      length: 40
       offset: 0
     initialized_from_dependency: false
-    selected: false
+    selected: true
     status: Solved
   text: type your solution here
   learner_created: false
-feedback_link: https://hyperskill.org/learn/step/6186#comment
+feedback_link: https://hyperskill.org/learn/step/14933#comment
 status: Solved
 feedback:
   message: <html>Correct solution</html>
-  time: "Fri, 16 Dec 2022 04:15:51 UTC"
+  time: "Fri, 16 Dec 2022 04:57:14 UTC"
 record: -1
