@@ -192,5 +192,8 @@ files:
         KnightsTourTest().run_tests()
   learner_created: false
 feedback_link: https://hyperskill.org/projects/141/stages/747/implement#comment
-status: Unchecked
-record: -1
+status: Solved
+feedback:
+  message: Congratulations!
+  time: "Fri, 16 Dec 2022 07:46:56 UTC"
+record: 2
