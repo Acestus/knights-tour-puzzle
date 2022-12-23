@@ -270,28 +270,12 @@ files:
     if __name__ == '__main__':
         KnightsTourTest().run_tests()
   learner_created: false
+- name: split.kql
+  visible: true
+  learner_created: true
 feedback_link: https://hyperskill.org/learn/step/11571#comment
-status: Failed
+status: Solved
 feedback:
-  message: |-
-    Error in test #8
-
-    The program has unexpectedly terminated.
-    It finished execution too early, should continue running.
-
-    Please find below the output of your program during this failed test.
-    Note that the '>' character indicates the beginning of the input line.
-
-    ---
-
-    Enter your board dimensions: > 4 3
-    Enter the knight's starting position: > 3 3
-    Here are the possible moves:
-    ---------------
-    3| __ __  X __ |
-    2|  1 __ __ __ |
-    1| __  2 __  1 |
-    ---------------
-        1  2  3  4
-  time: "Fri, 16 Dec 2022 15:21:49 UTC"
+  message: Congratulations!
+  time: "Fri, 23 Dec 2022 05:06:30 UTC"
 record: 5

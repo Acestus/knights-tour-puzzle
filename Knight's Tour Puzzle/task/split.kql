@@ -1,0 +1,9 @@
+(Search-AzGraph -Query "policyresources
+| where type =~ 'Microsoft.PolicyInsights/PolicyStates'
+| extend complianceState = tostring(properties.complianceState)
+| extend policyDefinitionReferenceId = tostring(properties.policyDefinitionReferenceId)
+| where complianceState == 'NonCompliant'
+| where properties.policyDefinitionReferenceId contains 'poet' or properties.policyDefinitionReferenceId contains 'billing contact'
+| where properties.managementGroupIds contains 'corp' or properties.managementGroupIds contains 'shared' or properties.managementGroupIds contains 'legacy' or properties.managementGroupIds contains 'sandbox' or properties.managementGroupIds contains 'dr' or properties.managementGroupIds contains 'tenant'
+| project ManagementGroup=(split(properties.managementGroupIds, ','))[1], subscriptionId, ResourceGroup=resourceGroup, ComplianceState=complianceState, PolicyName=policyDefinitionReferenceID, LastScanned=properties.timestamp, ['Import_Date']=format_datetime(now(-5h), 'yyyy-MM-dd HH:mm:ss')
+| sort by subscriptionId asc")| Export-Csv -UseCulture -Path "$FileName" -NoTypeInformation -Encoding UTF8
