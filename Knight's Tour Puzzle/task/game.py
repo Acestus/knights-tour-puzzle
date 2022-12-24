@@ -154,7 +154,7 @@ if answer is False:
                 matrix[rows - y][x - 1] = ' ' * (cell_size - 1) + str(label)
             knight_moves = warnsdorff_rule(x, y, visited_moves)
             #print("Label:", label)
-            #print_matrix(matrix)
+
             if knight_moves is None:
                 break
             else:
