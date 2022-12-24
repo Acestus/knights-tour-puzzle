@@ -399,6 +399,23 @@ files:
     if __name__ == '__main__':
         KnightsTourTest().run_tests()
   learner_created: false
+- name: split.kql
+  visible: true
+  text: |-
+    (Search-AzGraph -Query "policyresources
+    | where type =~ 'Microsoft.PolicyInsights/PolicyStates'
+    | extend complianceState = tostring(properties.complianceState)
+    | extend policyDefinitionReferenceId = tostring(properties.policyDefinitionReferenceId)
+    | where complianceState == 'NonCompliant'
+    | where properties.policyDefinitionReferenceId contains 'poet' or properties.policyDefinitionReferenceId contains 'billing contact'
+    | where properties.managementGroupIds contains 'corp' or properties.managementGroupIds contains 'shared' or properties.managementGroupIds contains 'legacy' or properties.managementGroupIds contains 'sandbox' or properties.managementGroupIds contains 'dr' or properties.managementGroupIds contains 'tenant'
+    | project ManagementGroup=(split(properties.managementGroupIds, ','))[1], subscriptionId, ResourceGroup=resourceGroup, ComplianceState=complianceState, PolicyName=policyDefinitionReferenceID, LastScanned=properties.timestamp, ['Import_Date']=format_datetime(now(-5h), 'yyyy-MM-dd HH:mm:ss')
+    | sort by subscriptionId asc")| Export-Csv -UseCulture -Path "$FileName" -NoTypeInformation -Encoding UTF8
+  learner_created: true
 feedback_link: https://hyperskill.org/learn/step/11572#comment
-status: Unchecked
+status: Solved
+feedback:
+  message: Well done! You've finished the project. Select a new project on <a href="https://hyperskill.org/projects">JetBrains
+    Academy</a> to continue learning.
+  time: "Sat, 24 Dec 2022 05:57:07 UTC"
 record: -1
